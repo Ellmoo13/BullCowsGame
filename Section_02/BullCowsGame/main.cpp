@@ -17,9 +17,11 @@ int main()
 	cout << "Enter your guess: ";
 	string Guess = "";
 	cin >> Guess;
-
+	
 	//repeat the guess back to them
 	cout << "You quess wa: " << Guess << endl;
+
+	//ODPOCZYNEK z pizz¹ 
 
 	return 0;
 }

@@ -30,7 +30,6 @@ int main()
 	} 
 	while (bPlayAgain);
 
-
 	//ODPOCZYNEK z pizz¹ 
 	std::cout << std::endl;
 	return 0;   //exit the application

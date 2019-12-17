@@ -11,11 +11,16 @@ bool AskToPlayGame();
 // the enetry point of our application
 int main()
 {
+	bool bPlayAgain = false;
+	do {
 	PrintIntro();
 	PlayGame();
-	AskToPlayGame();
+	bPlayAgain = AskToPlayGame();
+	} 
+	while (bPlayAgain);
+
+
 	//ODPOCZYNEK z pizz¹ 
-	//to ni¿ej nie jestem pewien
 	cout << endl;
 	return 0;   //exit the application
 }

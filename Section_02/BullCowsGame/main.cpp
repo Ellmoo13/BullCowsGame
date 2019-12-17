@@ -40,9 +40,8 @@ int main()
 //introduse the game 
 void PrintIntro() 
 {
-	constexpr int WORD_LENGTH = 9;
 	std::cout << "Welcone to Bulls and Cows \n";
-	std::cout << "Can you guess the " << WORD_LENGTH;
+	std::cout << "Can you guess the " << BCGame.GetHiddenWordLength();
 	std::cout << " Letter isogram I'm thinking of \n";
 	std::cout << std::endl;
 	return;

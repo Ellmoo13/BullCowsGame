@@ -14,20 +14,22 @@ struct FBullCowCount
 class FBullCowGame {
 public:
 	FBullCowGame();    //konstruktor :)
+
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
+	int32 GetHiddenWordLength() const;
+
 	bool IsGameWon() const;
+	bool ChescGuessValidity(FString) const;      //TODO make a more rich return value
 
 	void Reset(); //TODO make a more rich return value
-	bool ChescGuessValidity(FString);      //TODO  -- || --
-
-	// cunting bulls & cows, and increases try # assuming valid quess
 	FBullCowCount SumbitGuess(FString);
+	
 
 	//:> ignoruj to
 private:
 	// zobacz konstruktor dla inicializacji 
-	int MyCurrentTry;
+	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString MyHiddenWord;
 };

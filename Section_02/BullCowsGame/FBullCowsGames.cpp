@@ -18,7 +18,7 @@ void FBullCowGame::Reset()
 	constexpr int32 MAX_TRIES = 8;
 	MyMaxTries = MAX_TRIES;
 
-	const FString HIDDEN_WORD = "planet";
+	const FString HIDDEN_WORD = "ant";
 		MyHiddenWord = HIDDEN_WORD;
 
 	MyCurrentTry = 1;
@@ -35,18 +35,31 @@ bool FBullCowGame::ChescGuessValidity(FString)
 }
 
 // recieves a VALID guess, incriments turn, and returns count
-BullCowCount FBullCowGame::SumbitGuess(FString)
+FBullCowCount FBullCowGame::SumbitGuess(FString Guess)
 {
 	// incriment the return number
 	MyCurrentTry++;
 
 	// setup a return variablel
-	BullCowCount BullCowCount;
+	FBullCowCount BullCowCount;
 	
 	// lood through all letters in the guess
-
-
+	int32 HiddenWordLenght = MyHiddenWord.length();
+	for (int32 MHWChar = 0; MHWChar < HiddenWordLenght; MHWChar++) {
 		// copare letters against the hidden word
+		for (int32 GChar = 0; GChar < HiddenWordLenght; GChar++) {
+			//if they match then
+			if (Guess[GChar] == MyHiddenWord[MHWChar]) {
+				if (MHWChar == GChar) {    //incriment bulls if they are iiin the smae plays
+					BullCowCount.Bulls++;  // incriment bulls
+				}
+				else
+				{
+					BullCowCount.Cows++; // musi byæ krow¹
+				}
+			}
+		}
+	}
 
 	return BullCowCount;
 }

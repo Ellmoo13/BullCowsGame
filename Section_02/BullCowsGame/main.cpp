@@ -59,9 +59,11 @@ void PlayGame()
 		FText Guess = GetGuess(); // TODO make loop checing validation
 
 		// sumbit valid quqess to the game
+		FBullCowCount BullCowCount = BCGame.SumbitGuess(Guess);
 		// print number of bulls and cows
 
-		std::cout << "Your guess was: " << Guess << std::endl;
+		std::cout << "Bull = " << BullCowCount.Bulls;
+		std::cout << ". Cows = " << BullCowCount.Cows << std::endl;
 		std::cout << std::endl;
 	}
 }
@@ -85,3 +87,4 @@ bool AskToPlayGame()
 	return (Response[0] == 'y') || (Response[0] == 'y');
 }
 
+//siabadabada ! ! !

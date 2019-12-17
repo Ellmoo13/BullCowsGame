@@ -5,7 +5,7 @@ using FString = std::string;
 using int32 = int;
 
 // all integers, initialized to zero
-struct BullCowCount
+struct FBullCowCount
 {
 	int32 Bulls = 0;
 	int32 Cows = 0;
@@ -22,7 +22,7 @@ public:
 	bool ChescGuessValidity(FString);      //TODO  -- || --
 
 	// cunting bulls & cows, and increases try # assuming valid quess
-	BullCowCount SumbitGuess(FString);
+	FBullCowCount SumbitGuess(FString);
 
 	//:> ignoruj to
 private:

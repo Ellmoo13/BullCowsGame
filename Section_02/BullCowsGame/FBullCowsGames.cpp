@@ -28,13 +28,30 @@ void FBullCowGame::Reset()
 	return;
 }
 
-bool FBullCowGame::IsGameWon() const {
+bool FBullCowGame::IsGameWon() const 
+{
 	return false;
 }
 
-EWordStatus FBullCowGame::ChescGuessValidity(FString) const
+EGuessStatus FBullCowGame::ChescGuessValidity(FString Guess) const
 {
-	return EWordStatus::OK; // TODO make actual eroor
+	if (false) // if the guess isnt an isogram
+	{
+		return EGuessStatus::Not_Isogram;
+	}
+	else if (false) // if the guess isnt all lowercase
+	{
+		return EGuessStatus::Not_Lowercase;
+	} 
+	else if (Guess.length() != GetHiddenWordLength()) // if the guess length is weong
+	{
+		return EGuessStatus::Wrong_Length;
+	}
+	else 
+	{
+		return EGuessStatus::OK;
+
+	}
 }
 
 // recieves a VALID guess, incriments turn, and returns count

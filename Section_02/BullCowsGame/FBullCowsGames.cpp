@@ -32,9 +32,9 @@ bool FBullCowGame::IsGameWon() const {
 	return false;
 }
 
-bool FBullCowGame::ChescGuessValidity(FString) const
+EWordStatus FBullCowGame::ChescGuessValidity(FString) const
 {
-	return false;
+	return EWordStatus::OK; // TODO make actual eroor
 }
 
 // recieves a VALID guess, incriments turn, and returns count

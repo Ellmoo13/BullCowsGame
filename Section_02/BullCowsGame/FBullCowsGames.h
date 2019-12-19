@@ -29,12 +29,11 @@ public:
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
 	int32 GetHiddenWordLength() const;
-
 	bool IsGameWon() const;
 	EGuessStatus ChescGuessValidity(FString) const;      //TODO make a more rich return value
 
 	void Reset(); //TODO make a more rich return value
-	FBullCowCount SumbitGuess(FString);
+	FBullCowCount SubmitValidGuess(FString);
 	
 
 	//:> ignoruj to
@@ -43,4 +42,5 @@ private:
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString MyHiddenWord;
+	bool bGameIsWon;
 };

@@ -1,3 +1,2 @@
 ﻿  main.cpp
-c:\users\ell\documents\bullcowsgame\section_02\bullcowsgame\main.cpp(94): warning C4715: "GetValidGuess”: niewszystkie ścieżki kodu zwracają wartość
   BullCowsGame.vcxproj -> C:\Users\Ell\Documents\BullCowsGame\Section_02\Debug\BullCowsGame.exe

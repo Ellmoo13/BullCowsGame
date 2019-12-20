@@ -2,21 +2,24 @@
 This acts as the view in a MVC patters, and is responsible for all
 user interaction. For game logic see the FBullCowGame class.
 */
+#pragma once
 
 #include <iostream>
 #include <string>
 #include "FBullCowsGames.h"
 
+// to make syntax Unreal friendly
 using FText = std::string;
 using int32 = int;
 
+// function prototypes as outside a class
 void PrintIntro();
 void PlayGame();
 FText GetValidGuess();
 bool AskToPlayGame();
 void PrintGameSummary();
 
-FBullCowGame BCGame;   //instantiate new gejm
+FBullCowGame BCGame;   //instantiate new gejm, which we re-use across plays
 
 // the enetry point of our application
 int main()
@@ -26,7 +29,6 @@ int main()
 	do {
 		PrintIntro();
 		PlayGame();
-		// TODO add a game summary
 		bPlayAgain = AskToPlayGame();
 	} 
 	while (bPlayAgain);
@@ -36,18 +38,16 @@ int main()
 	return 0;   //exit the application
 }
 
-
-
-//introduse the game 
 void PrintIntro() 
 {
-	std::cout << "\n\nWelcone to Bulls and Cows \n";
+	std::cout << "Welcone to Bulls and Cows.\n ";
 	std::cout << "Can you guess the " << BCGame.GetHiddenWordLength();
-	std::cout << " Letter isogram I'm thinking of \n";
+	std::cout << " Letter isogram I'm thinking of ?\n";
 	std::cout << std::endl;
 	return;
 }
 
+// pleys a single game to completion
 void PlayGame()
 {
 	BCGame.Reset();
@@ -76,9 +76,11 @@ FText GetValidGuess() // tak
 	do {
 		//get a guess from the player
 		int32 CurrentTry = BCGame.GetCurrentTry();
-		std::cout << "Try " << CurrentTry << " Enter your guess: ";
+		std::cout << "Try " << CurrentTry << " of " << BCGame.GetMaxTries();
+		std::cout << " Enter your guess: ";
 		std::getline(std::cin, Guess);
 
+		//chect status and give feedback
 		Status = BCGame.ChescGuessValidity(Guess);
 		switch (Status) {
 		case EGuessStatus::Wrong_Length:
@@ -94,7 +96,6 @@ FText GetValidGuess() // tak
 			// assume the guess is valid
 			break;
 		}
-		std::cout << std::endl;
 	} while (Status != EGuessStatus::OK);  // keep looping until we get no error
 	return Guess;
 }
